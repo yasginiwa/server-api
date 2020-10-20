@@ -13,6 +13,7 @@ router.get('/', async(ctx, next) => {
 })
 
 router.post('/login', async (ctx, next) => {
+
     let email = ctx.request.body.email
     let queryResult = await dao.execQuery(`select * from t_users where email = '${email}'`)
     let user = queryResult[0]
@@ -25,7 +26,7 @@ router.post('/login', async (ctx, next) => {
     } else {
         const payload = {id: user.id, name: user.name, mobile: user.mobile}
         const token = `Bearer ${sign(payload, jwt_config.secretOrKey, {expiresIn: jwt_config.expiresIn})}`
-        ctx.sendResult({ token }, 200, 'success')
+        ctx.sendResult({ token, user }, 200, 'success')
     }
     next()
 })

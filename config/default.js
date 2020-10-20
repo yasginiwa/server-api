@@ -10,6 +10,10 @@ module.exports = {
         secretOrKey: 'yasginiwa12#$',
         expiresIn: 3600
     },
+    baseURL: {
+        private: '/api/v1/private',
+        public: '/api/v1/public'
+    },
     upload_config: {
         
     }

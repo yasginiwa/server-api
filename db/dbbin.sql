@@ -26,9 +26,10 @@ CREATE TABLE `t_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(10) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL,
-  `email` varchar(20) DEFAULT NULL,
+  `mobile` varchar(11) DEFAULT NULL,
+  `email` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +38,7 @@ CREATE TABLE `t_users` (
 
 LOCK TABLES `t_users` WRITE;
 /*!40000 ALTER TABLE `t_users` DISABLE KEYS */;
-INSERT INTO `t_users` VALUES (1,'admin','password','23801504@qq.com');
+INSERT INTO `t_users` VALUES (1,'admin','admin','13545126358','23801504@qq.com'),(2,'lyg','yasginiwa','1358435741','yasginiwa@163.com');
 /*!40000 ALTER TABLE `t_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-19 21:07:08
+-- Dump completed on 2020-10-20 13:35:12

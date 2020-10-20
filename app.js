@@ -3,6 +3,7 @@ const router = require('koa-router')()
 const bodyParser = require('koa-bodyparser')
 const resextra = require('./modules/resextra')
 const users = require('./routes/api/v1/public/users')
+const { baseURL } = require('./config/default')
 
 let app = new Koa()
 
@@ -12,11 +13,11 @@ app.use(bodyParser())
 //  统一设置api返回格式
 app.use(resextra)
 
-router.use('/users', users)
+router.use(`${baseURL.private}/users`, users)
 
 app.use(router.routes())
     .use(router.allowedMethods())
 
 app.listen(3000, () => {
-    console.log('http://127.0.0.1:3000 running...'
+    console.log('http://127.0.0.1:3000 running...')
 })
