@@ -2,9 +2,11 @@ const Koa = require('koa')
 const router = require('koa-router')()
 const bodyParser = require('koa-bodyparser')
 const resextra = require('./modules/resextra')
-const users = require('./routes/api/v1/public/users')
 const { baseURL } = require('./config/default')
 const passport = require('koa-passport')
+const regist = require('./routes/api/v1/public/regist')
+const login = require('./routes/api/v1/public/login')
+const users = require('./routes/api/v1/private/users')
 
 let app = new Koa()
 
@@ -21,11 +23,16 @@ require('./config/passport')(passport)
 //  统一设置api返回格式
 app.use(resextra)
 
+//  公共接口路由
+router.use(`${baseURL.public}/regist`, regist)
+router.use(`${baseURL.public}/login`, login)
+
+//  私有接口路由
 router.use(`${baseURL.private}/users`, users)
 
 app.use(router.routes())
     .use(router.allowedMethods())
 
 app.listen(3000, () => {
-    console.log('http://127.0.0.1:3000 running...')
+    console.log('services is running on http://127.0.0.1:3000')
 })
