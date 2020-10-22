@@ -16,5 +16,9 @@ module.exports = {
     },
     upload_config: {
         
+    },
+    weapp_config: {
+        appid: 'wx6e12c795fe0e73c5',
+        secret: '1efc00a55d22cc93edce26bc8561f194'
     }
 }

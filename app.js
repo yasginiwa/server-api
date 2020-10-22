@@ -7,6 +7,8 @@ const passport = require('koa-passport')
 const regist = require('./routes/api/v1/public/regist')
 const login = require('./routes/api/v1/public/login')
 const users = require('./routes/api/v1/private/users')
+const categories = require('./routes/api/v1/private/categories')
+const openid = require('./routes/api/v1/public/openid')
 
 let app = new Koa()
 
@@ -26,9 +28,11 @@ app.use(resextra)
 //  公共接口路由
 router.use(`${baseURL.public}/regist`, regist)
 router.use(`${baseURL.public}/login`, login)
+router.use(`${baseURL.public}/openid`, openid)
 
 //  私有接口路由
 router.use(`${baseURL.private}/users`, users)
+router.use(`${baseURL.private}/categories`, categories)
 
 app.use(router.routes())
     .use(router.allowedMethods())
