@@ -16,29 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `t_category`
+-- Table structure for table `t_categories`
 --
 
-DROP TABLE IF EXISTS `t_category`;
+DROP TABLE IF EXISTS `t_categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `t_category` (
+CREATE TABLE `t_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) DEFAULT NULL,
   `pid` int(11) DEFAULT NULL,
   `p_level` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `t_category`
+-- Dumping data for table `t_categories`
 --
 
-LOCK TABLES `t_category` WRITE;
-/*!40000 ALTER TABLE `t_category` DISABLE KEYS */;
-INSERT INTO `t_category` VALUES (1,'手机',1,1),(2,'电脑',1,1),(3,'平板电脑',1,1),(4,'电视',1,1);
-/*!40000 ALTER TABLE `t_category` ENABLE KEYS */;
+LOCK TABLES `t_categories` WRITE;
+/*!40000 ALTER TABLE `t_categories` DISABLE KEYS */;
+INSERT INTO `t_categories` VALUES (1,'手机',1,1),(2,'电脑',1,1),(3,'平板电脑',1,1),(4,'电视',1,1),(5,'家具',1,1),(7,'酒品',1,1),(8,'厨具',1,1),(9,'母婴',1,1);
+/*!40000 ALTER TABLE `t_categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -79,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-22 21:51:09
+-- Dump completed on 2020-10-23 21:45:58
