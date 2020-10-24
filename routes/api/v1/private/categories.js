@@ -23,7 +23,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), async (ctx, n
         const addRes = await dao.execQuery(`insert into t_categories values (null, '${name}', ${pid}, ${p_level})`)
         if (addRes) {
             const cateRes = await dao.execQuery(`select * from t_categories where name = '${name}'`)
-            ctx.sendResult(cateRes[0], 200, '添加分类成功')
+            ctx.sendResult(cateRes[0], 201, '添加分类成功')
         }
     }
     next()
@@ -44,7 +44,7 @@ router.get('/:id', passport.authenticate('jwt', { session: false }), async (ctx,
 router.put('/:id', passport.authenticate('jwt', { session: false }), async (ctx, next) => {
     const newName = ctx.request.body.name
     if (ctx.state.user) {
-        const modifyRes = await dao.execQuery(`update t_category set name = '${newName}' where id = ${ctx.params.id}`)
+        const modifyRes = await dao.execQuery(`update t_categories set name = '${newName}' where id = ${ctx.params.id}`)
         if (modifyRes) {
             const cateRes = await dao.execQuery(`select * from t_categories where id = ${ctx.params.id}`)
             ctx.sendResult(cateRes[0], 201, '修改成功')

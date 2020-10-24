@@ -1,7 +1,7 @@
 const mysql = require('mysql')
 const { db_config } = require('../config/default')
 
-//  mysql连接 设计成单例模式
+//  mysql连接 单例模式
 class Connect {
     static getInstance() {
         if (!Connect.instance) {
